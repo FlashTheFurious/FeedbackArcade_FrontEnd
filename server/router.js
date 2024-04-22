@@ -7,7 +7,6 @@ const mid = require('./middleware');
 // console.log('Account loginPage:', typeof controllers.Account.loginPage); 
 
 const router = (app) => {
-  app.get('/getDomos', mid.requiresLogin, controllers.Domo.getDomos);
 
   app.post('/signup', mid.requiresSecure, mid.requiresLogout, controllers.Account.signup);
   
@@ -21,12 +20,8 @@ const router = (app) => {
     return res.render('gameReviews', { game: req.params.game }); // Logic to display reviews for the game specified by :game
   });
 
-  app.get('/maker', mid.requiresLogin, controllers.Domo.makerPage);
-  app.post('/maker', mid.requiresLogin, controllers.Domo.makeDomo);
 
   app.get('/', mid.requiresSecure, mid.requiresLogout, controllers.Account.loginPage);
-
-  app.delete('/deleteDomo', mid.requiresLogin, controllers.Domo.deleteDomo);
 
 };
 

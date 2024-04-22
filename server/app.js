@@ -14,16 +14,16 @@ const redis = require('redis');
 const router = require('./router.js');
 
 const port = process.env.PORT || process.env.NODE_PORT || 3000;
-const dbURI = process.env.MONGODB_URI || 'mongodb://127.0.0.1/DomoMaker';
+const dbURI = process.env.MONGODB_URI || 'mongodb://127.0.0.1/FeedbackArcade'; // Updated database name
 
-mongoose.connect(dbURI)
+mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log('Database connected successfully'))
   .catch((err) => console.error('Database connection error:', err));
 
 const redisClient = redis.createClient({url: process.env.REDISCLOUD_URL,});
 redisClient.on('error', err=> console.log('Redis Client Error', err));
 
-redisClient.connect().then(()=> {
+redisClient.connect().then(() => {
   const app = express();
   app.use(helmet());
   app.use('/assets', express.static(path.resolve(`${__dirname}/../hosted/`)));
@@ -34,8 +34,8 @@ redisClient.connect().then(()=> {
   
   app.use(session({
     key: 'sessionid',
-    store: new RedisStore({client:redisClient,}),
-    secret: 'Domo_Arigato',
+    store: new RedisStore({ client: redisClient }),
+    secret: 'FeedbackArcadeSecret',  // Updated session secret
     resave: false,
     saveUninitialized: false,
   }));
@@ -49,7 +49,6 @@ redisClient.connect().then(()=> {
     if (err) {
       throw err;
     }
-    // console.log(`Listening on port ${port}`);
+    console.log(`Listening on port ${port}`);
   });
-})
-
+});
