@@ -5,7 +5,7 @@ module.exports = {
         minimize: false,
       },
     entry:{
-        app:'./client/maker.jsx',
+        app:'./client/home.jsx',
         login:'./client/login.jsx',
     },
     module: {

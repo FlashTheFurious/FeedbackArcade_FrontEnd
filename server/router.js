@@ -20,8 +20,8 @@ const router = (app) => {
     return res.render('gameReviews', { game: req.params.game }); // Logic to display reviews for the game specified by :game
   });
 
-
   app.get('/', mid.requiresSecure, mid.requiresLogout, controllers.Account.loginPage);
+
 
 };
 
