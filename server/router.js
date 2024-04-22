@@ -16,6 +16,11 @@ const router = (app) => {
 
   app.get('/logout', mid.requiresLogin, controllers.Account.logout);
 
+  // Game review routes
+  app.get('/reviews/:game', mid.requiresLogin, (req, res) => {
+    return res.render('gameReviews', { game: req.params.game }); // Logic to display reviews for the game specified by :game
+  });
+
   app.get('/maker', mid.requiresLogin, controllers.Domo.makerPage);
   app.post('/maker', mid.requiresLogin, controllers.Domo.makeDomo);
 
