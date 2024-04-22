@@ -1,12 +1,67 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8"/>
   <title>{{game}} Reviews - Feedback Arcade</title>
-  <!-- Include your CSS and favicon as needed -->
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+    header {
+      background-color: #0055a4;
+      color: white;
+      padding: 10px 20px;
+      text-align: center;
+    }
+    main {
+      padding: 20px;
+      margin: auto;
+      max-width: 800px;
+      background: white;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    article {
+      margin-bottom: 20px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #eee;
+    }
+    article:last-child {
+      border-bottom: none;
+    }
+    .review-content {
+      color: #555;
+      font-size: 16px;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #222;
+      color: white;
+    }
+    a {
+      color: #0077cc;
+    }
+  </style>
 </head>
 <body>
-  <h1>{{game}} Reviews</h1>
-  <!-- Logic to display reviews goes here -->
-  <a href="/">Back to Home</a>
+  <header>
+    <h1>{{game}} Reviews</h1>
+  </header>
+  <main>
+    <article>
+      <h2>Dummy Review for Overwatch 2</h2>
+      <p class="review-content">
+        "This game has been a true tragedy for everyone involved. For reasons not in the control of the Devs, many decisions were made to slowly cut off anyone who was still a fan of the Original game and the work Blizzard did back in the golden days. It started with extreme delays, which eventually turned into a cancellation of the PVE and the sacking of all devs involved."
+      </p>
+    </article>
+    <!-- Later I will Dynamically insert other reviews -->
+  </main>
+  <footer>
+    <a href="/">Back to Home</a>
+  </footer>
 </body>
 </html>
