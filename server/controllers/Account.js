@@ -20,7 +20,7 @@ const login = async (req, res) => {
   try {
     const account = await Account.authenticate(username, pass);
     req.session.account = Account.toAPI(account);
-    return res.json({ redirect: '/maker' });
+    return res.json({ redirect: '/' });
   } catch (err) {
     console.log(err);
     if (err.message === 'User not found' || err.message === 'Password is incorrect') {
@@ -53,7 +53,7 @@ const signup = async (req, res) => {
     await newAccount.save();
     req.session.account = Account.toAPI(newAccount);
     
-    return res.json({ redirect: '/maker' });
+    return res.json({ redirect: '/' });
   } catch (err) {
     console.log(err);
 
