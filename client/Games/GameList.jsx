@@ -7,7 +7,7 @@ const GameList = () => {
     <div className='container'>
         <div className='mt-5 gamesHeading'>
             <h1>GAMES</h1>
-            <p>Innovate the world with Games</p>
+            <p>Your feedback can change Virtual Worlds</p>
         </div>
         <div>
             <h4>New Releases</h4>
